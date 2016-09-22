@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { render } from 'react-dom';
+import navbarInstance from './navbar/navbar.jsx';
 
 class HelloWorld extends React.Component {
   render() {
@@ -12,4 +13,5 @@ class HelloWorld extends React.Component {
 
 Meteor.startup(() => {
   render(<HelloWorld />, document.getElementById('app'));
+  render(navbarInstance, document.getElementById('nav'));
 });
