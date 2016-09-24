@@ -1,17 +1,20 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { render } from 'react-dom';
-import navbarInstance from './navbar/navbar.jsx';
+import navbarInstance from './ui/navbar.jsx';
 
-class HelloWorld extends React.Component {
-  render() {
-    return (
-      <h1>Hello World</h1>
-    );
-  }
-}
+import GoogleMap from 'google-map-react';
 
 Meteor.startup(() => {
-  render(<HelloWorld />, document.getElementById('app'));
   render(navbarInstance, document.getElementById('nav'));
+  render(<Test />, document.getElementById('app'));
+});
+
+var Test = React.createClass({
+
+  render() {
+    return (
+      <h1> oh god </h1>
+    );
+  }
 });
