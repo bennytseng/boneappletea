@@ -1,20 +1,22 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { render } from 'react-dom';
-import navbarInstance from './ui/navbar.jsx';
-
-import GoogleMap from 'google-map-react';
-
-Meteor.startup(() => {
-  render(navbarInstance, document.getElementById('nav'));
-  render(<Test />, document.getElementById('app'));
-});
+import ReactMixin from 'react-mixin';
+import navbarInstance from '../imports/ui/navbar.jsx';
+import '../imports/ui/map.jsx';
 
 var Test = React.createClass({
-
-  render() {
-    return (
-      <h1> oh god </h1>
-    );
-  }
+    render() {
+      return (
+        <div>THIS SUCKS</div>
+      );
+    }
 });
+
+if (Meteor.isClient) {
+  Meteor.startup(() => {
+    GoogleMaps.load();
+    render(navbarInstance, document.getElementById('nav'));
+    render(<Test />, document.getElementById('app'));
+  });
+}
